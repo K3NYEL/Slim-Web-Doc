@@ -20,15 +20,15 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#090909]/95 text-white backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b-2 border-gray-700 bg-[#090909]/95 text-white backdrop-blur-md">
       <nav
         aria-label="Navegación principal"
         className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
       >
         {/* Logo */}
         <Link
-          href="/"
-          aria-label="Ir al inicio"
+          href={RepositoryLink}
+          aria-label="Go to Repository"
           className="flex shrink-0 items-center gap-3"
           onClick={() => setMenuOpen(false)}
         >
