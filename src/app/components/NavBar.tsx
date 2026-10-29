@@ -4,10 +4,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ArrowDownToLine } from "lucide-react";
 
 import Button from "./buttons/Buttons";
 import Logo from "@public/slim-executor-mark.svg";
+
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -70,12 +71,12 @@ export default function NavBar() {
             </Button>
           </Link>
           <a
-            href="@public/downloads/slimdoc.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn--primary btn--md"
+            href="/download/slimdoc.pdf"
+            download="SlimDoc-Manual.pdf"
+            className="btn btn--secondary btn--md"
           >
-            Download
+            Download Doc
+            <ArrowDownToLine size={16} />
           </a>
         </div>
         {/* Botón móvil */}

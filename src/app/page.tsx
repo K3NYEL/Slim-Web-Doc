@@ -60,6 +60,11 @@ export default function Home() {
             With SlimDoc, you can easily write and organize your documentation using Markdown, and it will automatically generate a clean and user-friendly interface for your readers.
             Get started by exploring the features and customization options available in SlimDoc.
           </p>
+          <div className="mt-6 flex gap-4 border-2 border-gray-700 p-6">
+            <Button variant="primary" size="md">
+              Get Started
+            </Button>
+          </div>
         </section>
         <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
           <h2 className="text-lg font-semibold">
