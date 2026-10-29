@@ -1,0 +1,154 @@
+
+.btn {
+  --btn-bg: #dc2626;
+  --btn-color: #ffffff;
+  --btn-border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  border: 1px solid var(--btn-border);
+  border-radius: 0;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--sm {
+  min-height: 32px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.btn--md {
+  min-height: 40px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn--lg {
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+}
+
+/* Variantes */
+
+.btn--primary {
+  --btn-bg: #dc2626;
+  --btn-color: #ffffff;
+}
+
+.btn--primary:hover:not(:disabled) {
+  --btn-bg: #b91c1c;
+}
+
+.btn--secondary {
+  --btn-bg: #1f2937;
+  --btn-color: #f9fafb;
+}
+
+.btn--secondary:hover:not(:disabled) {
+  --btn-bg: #374151;
+}
+
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-color: #dc2626;
+  --btn-border: #dc2626;
+}
+
+.btn--outline:hover:not(:disabled) {
+  --btn-bg: #dc2626;
+  --btn-color: #ffffff;
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-color: inherit;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  --btn-bg: #e5e7eb;
+  --btn-color: #111827;
+}
+
+.btn--danger {
+  --btn-bg: #991b1b;
+  --btn-color: #ffffff;
+}
+
+.btn--danger:hover:not(:disabled) {
+  --btn-bg: #7f1d1d;
+}
+
+.btn--success {
+  --btn-bg: #15803d;
+  --btn-color: #ffffff;
+}
+
+.btn--success:hover:not(:disabled) {
+  --btn-bg: #166534;
+}
+
+.btn--full {
+  display: flex;
+  width: 100%;
+}
+
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__spinner {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 650ms linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn__spinner {
+    animation-duration: 1.5s;
+  }
+}
