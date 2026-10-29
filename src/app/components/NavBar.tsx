@@ -64,7 +64,7 @@ export default function NavBar() {
         <div className="hidden md:block">
           <Link href={RepositoryLink}>
             <Button
-              variant="primary"
+              variant="outline"
               rightIcon={<ArrowUpRight size={16} />}
             >
               Repository
@@ -73,7 +73,7 @@ export default function NavBar() {
           <a
             href="/download/slimdoc.pdf"
             download="SlimDoc-Manual.pdf"
-            className="btn btn--secondary btn--md"
+            className="btn btn--primary btn--md"
           >
             Download Doc
             <ArrowDownToLine size={16} />
