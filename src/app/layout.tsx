@@ -28,8 +28,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      
 
     >
+      <meta name="google-site-verification" content="NZSWUeQDIAnjdbr3sKnV9MFDjegc4q8X3LMfCXuqfQo" />
       <body className="min-h-full flex flex-col">{children}<Analytics /></body>
     </html>
   );
