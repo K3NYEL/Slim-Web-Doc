@@ -7,11 +7,10 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 import Button from "./buttons/Buttons";
-import Logo from "@public/Logo.jpg";
+import Logo from "@public/slim-executor-mark.svg";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Servicios", href: "/servicios" },
   { label: "Contacto", href: "/contacto" },
 ];
 
@@ -35,14 +34,14 @@ export default function NavBar() {
         >
           <Image
             src={Logo}
-            alt="Logo de la marca"
+            alt="Slim Executor Logo"
             width={40}
             height={40}
             priority
             className="h-10 w-10 object-contain"
           />
           <span className="text-lg font-bold tracking-tight">
-            Slim ExDoc<span className="text-red-500">.</span>
+            Slim ExDoc
           </span>
         </Link>
 
@@ -67,64 +66,66 @@ export default function NavBar() {
               variant="primary"
               rightIcon={<ArrowUpRight size={16} />}
             >
-              Repositorio
+              Repository
             </Button>
           </Link>
-          <Link href="/contacto">
-            <Button
-              variant="primary"
-              rightIcon={<ArrowUpRight size={16} />}
-            >
-              Descargar
-            </Button>
-          </Link>
-        </div>
-          {/* Botón móvil */}
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center border border-white/15 transition-colors hover:bg-white/10 md:hidden"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => setMenuOpen(!menuOpen)}
+          <a
+            href="@public/downloads/slimdoc.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--primary btn--md"
           >
-            {menuOpen ? <X size={21} /> : <Menu size={21} />}
-          </button>
+            Download
+          </a>
+        </div>
+        {/* Botón móvil */}
+        <button
+          type="button"
+          className="flex h-10 w-10 items-center justify-center border border-white/15 transition-colors hover:bg-white/10 md:hidden"
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+        </button>
       </nav>
 
       {/* Menú móvil */}
-      {menuOpen && (
-        <div
-          id="mobile-navigation"
-          className="border-t border-white/10 bg-[#090909] px-5 py-5 md:hidden"
-        >
-          <ul className="flex flex-col">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block border-b border-white/5 py-4 text-sm text-gray-300 transition-colors hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+      {
+        menuOpen && (
+          <div
+            id="mobile-navigation"
+            className="border-t border-white/10 bg-[#090909] px-5 py-5 md:hidden"
+          >
+            <ul className="flex flex-col">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block border-b border-white/5 py-4 text-sm text-gray-300 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <div className="mt-5">
-            <Link
-              href="/contacto"
-              onClick={() => setMenuOpen(false)}
-              className="block"
-            >
-              <Button fullWidth rightIcon={<ArrowUpRight size={16} />}>
-                Empezar
-              </Button>
-            </Link>
+            <div className="mt-5">
+              <Link
+                href="/contacto"
+                onClick={() => setMenuOpen(false)}
+                className="block"
+              >
+                <Button fullWidth rightIcon={<ArrowUpRight size={16} />}>
+                  Empezar
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
-    </header>
+        )
+      }
+    </header >
   );
 }
