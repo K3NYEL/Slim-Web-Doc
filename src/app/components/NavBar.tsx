@@ -3,8 +3,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X, ArrowUpRight, ArrowDownToLine } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, ArrowUpRight, ArrowDownToLine, CheckCircle } from "lucide-react";
 
 import Button from "./buttons/Buttons";
 import Logo from "@public/slim-executor-mark.svg";
@@ -19,6 +19,17 @@ const RepositoryLink = "https://github.com/K3NYEL/Slim-Executor-Releases.git"
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [downloadMessage, setDownloadMessage] = useState(false);
+
+  useEffect(() => {
+    if (!downloadMessage) return;
+
+    const timer = setTimeout(() => {
+      setDownloadMessage(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [downloadMessage]);
 
   return (
     <header className="sticky top-0 z-50 border-b-2 border-gray-700 bg-[#090909]/95 text-white backdrop-blur-md">
@@ -73,11 +84,19 @@ export default function NavBar() {
           <a
             href="/download/slimdoc.pdf"
             download="SlimDoc-Manual.pdf"
-            className="btn btn--primary btn--md"
+            onClick={() => setDownloadMessage(true)}
+            className="btn btn--secondary btn--md"
           >
             Download Doc
             <ArrowDownToLine size={16} />
           </a>
+
+          {downloadMessage && (
+            <div className="mt-3 flex items-center gap-2 text-sm text-green-400">
+              <CheckCircle size={18} />
+              Your download has started!
+            </div>
+          )}
         </div>
         {/* Botón móvil */}
         <button
