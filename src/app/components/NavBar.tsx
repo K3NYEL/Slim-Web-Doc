@@ -13,6 +13,7 @@ import Logo from "@public/slim-executor-mark.svg";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Contacto", href: "/contacto" },
+  {label: "Version", href: "#"},
 ];
 
 const RepositoryLink = "https://github.com/K3NYEL/Slim-Executor-Releases.git"
