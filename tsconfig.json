@@ -22,6 +22,7 @@
       "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
       "@public/*": ["./public/*"],
+      "@styles/*": ["./styles/*"],
     }
   },
   "include": [

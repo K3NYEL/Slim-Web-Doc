@@ -1,7 +1,8 @@
 import Button from './components/buttons/Buttons';
 import NavBar from './components/NavBar';
 import ActionButton from "./components/buttons/ActionButton";
-// import Button from './components/buttons/Buttons';
+import Image from "next/image";
+import Logo from "@public/slim-executor-mark.svg";
 
 export default function Home() {
   return (
@@ -11,7 +12,17 @@ export default function Home() {
         <article className="mb-4">
 
         </article>
-        <h1 className="text-3xl font-bold mb-4">Welcome to SlimDoc</h1>
+        <h1 className="text-3xl font-bold mb-4 flex items-center gap-2">
+          <Image
+            src={Logo}
+            alt="Slim Executor Logo"
+            width={40}
+            height={40}
+            priority
+            className="h-10 w-10 object-contain"
+          />
+          Welcome to SlimDoc
+        </h1>
         <p>
           SlimDoc is a lightweight documentation generator that helps you create beautiful and responsive documentation for your projects.
         </p>
@@ -21,9 +32,7 @@ export default function Home() {
         <p >
           Get started by exploring the features and customization options available in SlimDoc.
         </p>
-        <ActionButton />
       </section>
     </main>
   );
-
 }
