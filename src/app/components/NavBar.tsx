@@ -9,11 +9,10 @@ import { Menu, X, ArrowUpRight, ArrowDownToLine, CheckCircle } from "lucide-reac
 import Button from "./buttons/Buttons";
 import Logo from "@public/slim-executor-mark.svg";
 
-
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Contacto", href: "/contacto" },
-  {label: "Version", href: "#"},
+  {label: "Version", href: "/versions"},
 ];
 
 const RepositoryLink = "https://github.com/K3NYEL/Slim-Executor-Releases.git"
@@ -54,7 +53,7 @@ export default function NavBar() {
             className="h-10 w-10 object-contain"
           />
           <span className="text-lg font-bold tracking-tight">
-            Slim ExDoc
+            S.E Documentation
           </span>
         </Link>
 

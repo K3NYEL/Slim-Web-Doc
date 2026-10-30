@@ -52,7 +52,7 @@ export default function Home() {
         </aside>
         <section className="min-w-0 flex-1 p-6 text-white">
           <h1 className="mb-4 flex items-center gap-2 text-3xl font-bold">
-            Welcome to SlimDoc
+            Welcome to Slim Executor Documentation
           </h1>
 
           <p>
