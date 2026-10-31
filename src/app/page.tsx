@@ -1,4 +1,5 @@
 import Button from './components/buttons/Buttons';
+import DivRework from './components/div_rework/DivRework';
 import NavBar from './components/NavBar';
 
 export default function Home() {
@@ -20,13 +21,13 @@ export default function Home() {
 
             <ul className="space-y-2">
               <li>
-                <a href="#overview">Overview</a>
+                <a href="#overview" className="text-white transition-colors hover:text-[#dc2626]">Overview</a>
               </li>
               <li>
-                <a href="#installation">Installation</a>
+                <a href="#installation" className="text-white transition-colors hover:text-[#dc2626]">Installation</a>
               </li>
               <li>
-                <a href="#quick-start">Quick Start</a>
+                <a href="#quick-start" className="text-white transition-colors hover:text-[#dc2626]">Quick Start</a>
               </li>
             </ul>
 
@@ -36,35 +37,33 @@ export default function Home() {
 
             <ul className="space-y-2">
               <li>
-                <a href="#lua-runtime">Lua Runtime</a>
+                <a href="#lua" className="text-white transition-colors hover:text-[#dc2626]">Lua</a>
               </li>
               <li>
-                <a href="#lua-api">Lua API Reference</a>
+                <a href="#qt-interfaces" className="text-white transition-colors hover:text-[#dc2626]">Inferfaz Qt</a>
               </li>
               <li>
-                <a href="#ui-controls">UI Controls</a>
+                <a href="#canvas-events" className="text-white transition-colors hover:text-[#dc2626]">Canvas and Events</a>
               </li>
               <li>
-                <a href="#examples">Examples</a>
+                <a href="#functions" className="text-white transition-colors hover:text-[#dc2626]">Functions</a>
               </li>
             </ul>
           </nav>
         </aside>
-        <section className="min-w-0 flex-1 p-6 text-white">
-          <h1 className="mb-4 flex items-center gap-2 text-3xl font-bold">
+        <section className="min-w-0 flex-1 p-6 text-white flex flex-col gap-3">
+          <h1 className="text-gray-400 mb-4 flex items-center gap-2 text-3xl font-bold">
             Welcome to Slim Executor Documentation
           </h1>
-
-          <p>
-            SlimDoc is a lightweight documentation generator that helps you create beautiful and responsive documentation for your projects.
-            With SlimDoc, you can easily write and organize your documentation using Markdown, and it will automatically generate a clean and user-friendly interface for your readers.
-            Get started by exploring the features and customization options available in SlimDoc.
+          <h2 className="font-semibold text-[#dc2626]">
+            WHAT IS SLIM EXECUTOR?
+          </h2>
+          <p className="text-gray-300">
+            Slim Executor is a simple IDE 
           </p>
-          <div className="mt-6 flex gap-4 border-2 border-gray-700 p-6">
-            <Button variant="primary" size="md">
-              Get Started
-            </Button>
-          </div>
+          <DivRework>
+            <p>Hola</p>
+          </DivRework>
         </section>
         <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
           <h2 className="text-lg font-semibold">
@@ -72,17 +71,17 @@ export default function Home() {
           </h2>
           <ul className="mt-2 space-y-2">
             <li>
-              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-white">
+              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
                 Getting Started
               </a>
             </li>
             <li>
-              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-white">
+              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
                 API Reference
               </a>
             </li>
             <li>
-              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-white">
+              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
                 Examples
               </a>
             </li>
