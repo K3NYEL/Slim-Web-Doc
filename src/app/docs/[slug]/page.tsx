@@ -63,13 +63,13 @@ export default async function DocumentationPage({ params }: PageProps) {
 
       <nav aria-label="Documentation pagination" className="mt-12 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2">
         {previousPage ? (
-          <Link href={`/docs/${previousPage.slug}`} className="border border-white/10 p-4 hover:border-[#dc2626]/70">
+          <Link href={`/docs/${previousPage.slug}`} className="border border-2 border-gray-700 p-4 hover:border-[#dc2626]/70">
             <span className="block text-xs text-gray-500">Previous</span>
             <span className="mt-1 block text-sm text-white">← {previousPage.title}</span>
           </Link>
         ) : <span />}
         {nextPage && (
-          <Link href={`/docs/${nextPage.slug}`} className="border border-white/10 p-4 text-right hover:border-[#dc2626]/70">
+          <Link href={`/docs/${nextPage.slug}`} className="border-2 border-gray-700 p-4 text-right hover:border-[#dc2626]/70">
             <span className="block text-xs text-gray-500">Next</span>
             <span className="mt-1 block text-sm text-white">{nextPage.title} →</span>
           </Link>
