@@ -115,3 +115,45 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Skeleton loading */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #171717;
+  border: 1px solid rgb(255 255 255 / 4%);
+}
+.skeleton::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 7%), transparent);
+  animation: skeleton-shimmer 1.25s ease-in-out infinite;
+}
+.skeleton-stagger > * {
+  opacity: 0;
+  animation: skeleton-appear 360ms ease-out both;
+}
+.skeleton-stagger > *:nth-child(1) { animation-delay: 70ms; }
+.skeleton-stagger > *:nth-child(2) { animation-delay: 150ms; }
+.skeleton-stagger > *:nth-child(3) { animation-delay: 230ms; }
+.skeleton-stagger > *:nth-child(4) { animation-delay: 310ms; }
+.skeleton-stagger > *:nth-child(5) { animation-delay: 390ms; }
+.skeleton-stagger > *:nth-child(6) { animation-delay: 470ms; }
+.content-reveal > * {
+  animation: fade-up 420ms cubic-bezier(.2,.7,.2,1) both;
+}
+.content-reveal > *:nth-child(2) { animation-delay: 75ms; }
+.content-reveal > *:nth-child(3) { animation-delay: 150ms; }
+.content-reveal > *:nth-child(4) { animation-delay: 225ms; }
+.content-reveal > *:nth-child(5) { animation-delay: 300ms; }
+
+@keyframes skeleton-shimmer {
+  100% { transform: translateX(100%); }
+}
+@keyframes skeleton-appear {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
