@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import NavBar from "./NavBar";
+import PageLoading from "./PageLoading";
 import { docNavigation } from "../lib/docs";
 
 type DocumentationLayoutProps = {
@@ -70,11 +71,11 @@ export default function DocumentationLayout({
               ))}
             </nav>
           </details>
-          {children}
+          <PageLoading>{children}</PageLoading>
         </main>
 
         <aside className="motion-enter-right hidden border border-l-2 border-gray-700 px-5 py-8 xl:block">
-          <p className="mb-5 text-xs font-semibold  tracking-[0.18em] text-gray-500">On this page</p>
+          <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">On this page</p>
           {sections.length > 0 ? (
             <nav aria-label="On this page">
               <ul className="space-y-3">
@@ -90,12 +91,10 @@ export default function DocumentationLayout({
           ) : (
             <p className="text-sm leading-6 text-gray-500">Select a section from the documentation sidebar.</p>
           )}
- 
         </aside>
       </div>
 
-      <footer className="border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500">
-      </footer>
+      <footer className="border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500" />
     </div>
   );
 }
