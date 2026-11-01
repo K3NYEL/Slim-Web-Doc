@@ -20,7 +20,6 @@ export default function Home() {
   return (
     <DocumentationLayout activePath="/" sections={overviewSections}>
       <div className="mb-10">
-        <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[#dc2626]">OFFICIAL LUA USER GUIDE</p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white/80 sm:text-4xl">Slim Executor Documentation</h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400">
           Guía oficial para instalar Slim Executor, escribir scripts Lua, crear interfaces Qt, dibujar en canvas y probar la vista previa 3D.
@@ -60,7 +59,7 @@ export default function Home() {
 
       <section id="documentation-map" className="scroll-mt-28 py-9">
         <h2 className="mb-4 text-xl font-semibold text-white">Documentation map</h2>
-        <p className="mb-5 max-w-3xl leading-7 text-gray-400">Esta documentación está basada en el manual oficial incluido en <code className="text-gray-300">public/download/slimdoc.pdf</code> y en los ejemplos del repositorio. Empieza por los fundamentos y continúa con ventanas Qt, canvas, eventos, timers, almacenamiento, audio y la vista 3D experimental.</p>
+        <p className="mb-5 max-w-3xl leading-7 text-gray-400">Esta documentación está basada en el manual oficial y en los ejemplos del repositorio. Empieza por los fundamentos y continúa con ventanas Qt, canvas, eventos, timers, almacenamiento, audio y la vista 3D experimental.</p>
         <div className="flex flex-wrap gap-3">
           <Link href="/docs/installation" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Installation</Link>
           <Link href="/docs/quick-start" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Quick Start</Link>
