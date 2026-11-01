@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
@@ -22,9 +23,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/slim-executor-mark.svg",
   },
+  verification: {
+    google: "NZSWUeQDIAnjdbr3sKnV9MFDjegc4q8X3LMfCXuqfQo",
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
@@ -32,7 +36,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       
 
     >
-      <meta name="google-site-verification" content="NZSWUeQDIAnjdbr3sKnV9MFDjegc4q8X3LMfCXuqfQo" />
       <body className="min-h-full flex flex-col">{children}<Analytics /><SpeedInsights /></body>
     </html>
   );
