@@ -8,7 +8,6 @@ export default function PageLoading({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     const timer = window.setTimeout(() => setLoading(false), 620);
     return () => window.clearTimeout(timer);
   }, [pathname]);
