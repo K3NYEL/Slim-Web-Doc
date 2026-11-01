@@ -4,15 +4,27 @@
   "tasks": {
     "lint": {
       "dependsOn": ["^lint"],
-      "outputs": []
+      "outputs": [],
+      "tags": [
+        "ci"
+      ]
     },
     "type-check": {
       "dependsOn": ["^type-check"],
-      "outputs": []
+      "outputs": [],
+      "tags": [
+        "ci"
+      ]
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ],
+      "tags": [
+        "ci"
+      ]
     },
     "test": {
       "dependsOn": ["^test"],
