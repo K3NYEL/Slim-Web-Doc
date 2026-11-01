@@ -1,97 +1,72 @@
-// import Button from './components/buttons/Buttons';
-import NavBar from './components/NavBar';
-import DivRework from './components/div/DivRework';
+import Link from "next/link";
+import DocumentationLayout from "./components/DocumentationLayout";
+
+const overviewSections = [
+  { id: "what-is-slim-executor", title: "What is Slim Executor?" },
+  { id: "what-you-can-do", title: "What you can do" },
+  { id: "how-it-works", title: "How it works" },
+  { id: "documentation-map", title: "Documentation map" },
+];
+
+const featureCards = [
+  { title: "Lua scripting", description: "Write and execute Lua scripts inside a Windows desktop application.", href: "/docs/lua-runtime" },
+  { title: "UI integration", description: "Explore the UI, window, timer and canvas bindings exposed by the runtime.", href: "/docs/ui-controls" },
+  { title: "Development workflow", description: "Create scripts, run them, inspect output and troubleshoot errors.", href: "/docs/quick-start" },
+];
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen ">
-      <header className="sticky top-0 z-50">
-        <NavBar />
-      </header>
-      <section id="overview" className="flex flex-row gap-8 min-h-screen bg-[#090909]">
-        <aside className="h-100% w-64 shrink-0 border-r-2 border-gray-700 p-6">
-          {/* <h2 className="mb-6 text-lg font-bold">
-            Documentation
-          </h2>
+    <DocumentationLayout activePath="/" sections={overviewSections}>
+      <div className="mb-10">
+        <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#dc2626]">OFFICIAL DOCUMENTATION</p>
+        <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Slim Executor Documentation</h1>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400">
+          Guides and technical notes for installing Slim Executor, writing Lua scripts, using its application bindings and understanding the runtime.
+        </p>
+      </div>
 
-          <nav aria-label="Documentation navigation">
-            <h3 className="mb-3 text-xs font-semibold text-gray-500">
-              GETTING STARTED
-            </h3>
-
-            <ul className="space-y-2">
-              <li>
-                <a href="#overview" className="text-white transition-colors hover:text-[#dc2626]">Overview</a>
-              </li>
-              <li>
-                <a href="#installation" className="text-white transition-colors hover:text-[#dc2626]">Installation</a>
-              </li>
-              <li>
-                <a href="#quick-start" className="text-white transition-colors hover:text-[#dc2626]">Quick Start</a>
-              </li>
-            </ul>
-
-            <h3 className="mb-3 mt-6 text-xs font-semibold text-gray-500">
-              DOCUMENTATION
-            </h3>
-
-            <ul className="space-y-2">
-              <li>
-                <a href="#lua" className="text-white transition-colors hover:text-[#dc2626]">Lua</a>
-              </li>
-              <li>
-                <a href="#qt-interfaces" className="text-white transition-colors hover:text-[#dc2626]">Inferfaz Qt</a>
-              </li>
-              <li>
-                <a href="#canvas-events" className="text-white transition-colors hover:text-[#dc2626]">Canvas and Events</a>
-              </li>
-              <li>
-                <a href="#functions" className="text-white transition-colors hover:text-[#dc2626]">Functions</a>
-              </li>
-            </ul>
-          </nav> */}
-        </aside>
-        <section id="documentation-section" className="min-w-0 flex-1 p-6 text-white flex flex-col gap-2">
-          <h1 className="text-gray-400 mb-4 flex items-center gap-2 text-3xl font-bold">
-            Welcome to Slim Executor Documentation
-          </h1>
-          <h2 className="font-semibold text-[#dc2626]">
-            WHAT IS SLIM EXECUTOR?
-          </h2>
-          <p className="text-gray-300">
-            
-          </p>
-          <DivRework>
-            <p className="text-gray-300">
-              It provides a user-friendly interface for developing and running Lua scripts.
-            </p>
-          </DivRework>
-        </section>
-        <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
-          {/* <h2 className="text-lg font-semibold">
-            Quick Links
-          </h2>
-          <ul className="mt-2 space-y-2">
-            <li>
-              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
-                Getting Started
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
-                API Reference
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
-                Examples
-              </a>
-            </li>
-          </ul> */}
-        </aside>
+      <section id="what-is-slim-executor" className="scroll-mt-28 border-b border-white/10 pb-9">
+        <h2 className="mb-4 text-xl font-semibold text-white">What is Slim Executor?</h2>
+        <p className="max-w-3xl leading-7 text-gray-300">
+          Slim Executor is a Windows desktop application built around an embedded Lua scripting runtime. It provides a workspace for creating and executing scripts, reviewing runtime output and experimenting with application-level interfaces from Lua.
+        </p>
+        <p className="mt-4 max-w-3xl leading-7 text-gray-400">
+          The project combines a native application with a Lua runtime and UI bindings. Its purpose is to give developers a place to build, test and run scripts and interactive experiments without needing a separate Lua host for every test.
+        </p>
       </section>
-      <footer className="bg-[#090909] border-t-2 border-gray-700 p-4 text-center text-white">
-      </footer>
-    </main>
+
+      <section id="what-you-can-do" className="scroll-mt-28 border-b border-white/10 py-9">
+        <h2 className="mb-4 text-xl font-semibold text-white">What you can do</h2>
+        <div className="grid gap-3 md:grid-cols-3">
+          {featureCards.map((card) => (
+            <Link key={card.href} href={card.href} className="border border-white/10 p-5 transition-colors hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
+              <h3 className="mb-2 font-semibold text-white">{card.title}</h3>
+              <p className="text-sm leading-6 text-gray-400">{card.description}</p>
+              <span className="mt-5 inline-block text-xs font-medium text-[#dc2626]">Explore documentation →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" className="scroll-mt-28 border-b border-white/10 py-9">
+        <h2 className="mb-4 text-xl font-semibold text-white">How it works</h2>
+        <ol className="max-w-3xl space-y-3 text-sm leading-6 text-gray-300">
+          <li><span className="mr-3 font-mono text-[#dc2626]">01</span>Create or open a Lua script in the application.</li>
+          <li><span className="mr-3 font-mono text-[#dc2626]">02</span>Execute the script using the runtime provided by Slim Executor.</li>
+          <li><span className="mr-3 font-mono text-[#dc2626]">03</span>Review output and runtime errors, then iterate on the script.</li>
+          <li><span className="mr-3 font-mono text-[#dc2626]">04</span>Use documented application bindings when a script needs UI-related behavior.</li>
+        </ol>
+      </section>
+
+      <section id="documentation-map" className="scroll-mt-28 py-9">
+        <h2 className="mb-4 text-xl font-semibold text-white">Documentation map</h2>
+        <p className="mb-5 max-w-3xl leading-7 text-gray-400">Start with installation and the quick-start guide, then continue to the runtime and UI topics. The reference is being expanded; where exact API signatures are not yet verified, the pages identify the relevant API area without inventing method names or arguments.</p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/docs/installation" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Installation</Link>
+          <Link href="/docs/quick-start" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Quick Start</Link>
+          <Link href="/docs/examples" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Examples</Link>
+        </div>
+      </section>
+    </DocumentationLayout>
   );
 }
