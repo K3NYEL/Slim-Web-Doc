@@ -1,13 +1,14 @@
-import Button from './components/buttons/Buttons';
+// import Button from './components/buttons/Buttons';
 import NavBar from './components/NavBar';
+import Div from './components/div/DivRework';
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <header>
+    <main className="flex flex-col min-h-screen ">
+      <header className="sticky top-0 z-50">
         <NavBar />
       </header>
-      <section className="flex flex-row gap-8 min-h-screen bg-[#090909]">
+      <section id="overview" className="flex flex-row gap-8 min-h-screen bg-[#090909]">
         <aside className="h-100% w-64 shrink-0 border-r-2 border-gray-700 p-6">
           <h2 className="mb-6 text-lg font-bold">
             Documentation
@@ -50,7 +51,7 @@ export default function Home() {
             </ul>
           </nav>
         </aside>
-        <section className="min-w-0 flex-1 p-6 text-white flex flex-col gap-3">
+        <section id="documentation-section" className="min-w-0 flex-1 p-6 text-white flex flex-col gap-2">
           <h1 className="text-gray-400 mb-4 flex items-center gap-2 text-3xl font-bold">
             Welcome to Slim Executor Documentation
           </h1>
@@ -60,6 +61,11 @@ export default function Home() {
           <p className="text-gray-300">
             Slim Executor is a simple IDE 
           </p>
+          <Div>
+            <p className="text-gray-300">
+              It provides a user-friendly interface for developing and running Lua scripts.
+            </p>
+          </Div>
         </section>
         <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
           <h2 className="text-lg font-semibold">
