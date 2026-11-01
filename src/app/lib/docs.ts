@@ -1,3 +1,7 @@
+const RepositoryLink = {
+  url: "https://github.com/K3NYEL/Slim-Executor-Releases"
+}
+
 export type DocSection = {
   id: string;
   title: string;
@@ -49,7 +53,7 @@ export const docPages: DocPage[] = [
     description: "Install Slim Executor on a supported Windows system and prepare it to run Lua scripts.",
     sections: [
       { id: "requirements", title: "Requirements", paragraphs: ["Slim Executor is distributed as a Windows desktop application. Use a current Windows installation and download the installer only from the official release repository."], bullets: ["Windows 10 or Windows 11 (64-bit).", "The official Slim Executor Setup installer.", "An internet connection when downloading the installer or checking for releases."] },
-      { id: "download", title: "Download", paragraphs: ["Open the official public releases repository and choose the latest stable release. Download the Setup executable attached to that release. Avoid unofficial mirrors and development artifacts."], bullets: ["Official releases: https://github.com/K3NYEL/Slim-Executor-Releases/releases", "Choose the Windows x64 Setup installer.", "Keep the installer filename unchanged until the download completes."] },
+      { id: "download", title: "Download", paragraphs: ["Open the official public releases repository and choose the latest stable release. Download the Setup executable attached to that release. Avoid unofficial mirrors and development artifacts."], bullets: ["Official releases: " + RepositoryLink.url, "Choose the Windows x64 Setup installer.", "Keep the installer filename unchanged until the download completes."] },
       { id: "install", title: "Install and launch", paragraphs: ["Run the downloaded Setup executable and follow the installation prompts. When installation finishes, launch Slim Executor from its installed shortcut or application entry.", "Release contents and installation screens may change between versions. Follow the instructions included with the release you downloaded."] },
       { id: "updates", title: "Updates", paragraphs: ["Slim Executor includes an update-checking flow that can query the public releases repository. Checking for updates is user-initiated; review the offered version before choosing to download or install it."] },
     ],
