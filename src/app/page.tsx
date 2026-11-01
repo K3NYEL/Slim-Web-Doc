@@ -20,7 +20,6 @@ export default function Home() {
   return (
     <DocumentationLayout activePath="/" sections={overviewSections}>
       <div className="mb-10">
-        <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[#dc2626]">WINDOWS LUA DEVELOPMENT</p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white/80 sm:text-4xl">Slim Executor Documentation</h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400">
           Guides and technical notes for installing Slim Executor, writing Lua scripts, using its application bindings and understanding the runtime.

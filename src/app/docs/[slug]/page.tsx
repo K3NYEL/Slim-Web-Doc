@@ -37,7 +37,6 @@ export default async function DocumentationPage({ params }: PageProps) {
       sections={page.sections.map(({ id, title }) => ({ id, title }))}
     >
       <div className="mb-10">
-        <Link href="/" className="mb-5 inline-block text-xs text-gray-500 transition-colors hover:text-[#dc2626]">Documentation / Home</Link>
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{page.title}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-gray-400">{page.description}</p>
       </div>
