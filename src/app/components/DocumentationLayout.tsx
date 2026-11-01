@@ -21,7 +21,7 @@ export default function DocumentationLayout({
       </header>
 
       <div className="mx-auto grid w-full max-w-[1600px] flex-1 grid-cols-1 xl:grid-cols-[240px_minmax(0,1fr)_220px]">
-        <aside className="hidden border-r border-white/10 px-5 py-8 xl:block">
+        <aside className="motion-enter-left hidden border-r border-white/10 px-5 py-8 xl:block">
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Documentation</p>
           <nav aria-label="Documentation sidebar" className="space-y-8">
             {docNavigation.map((group) => (
@@ -35,7 +35,7 @@ export default function DocumentationLayout({
                         <Link
                           href={item.href}
                           aria-current={active ? "page" : undefined}
-                          className={`block border-l-2 px-3 py-2 text-sm transition-colors ${active ? "border-[#dc2626] bg-white/[0.04] text-white" : "border-transparent text-gray-400 hover:text-white"}`}
+                          className={`doc-nav-link block border-l-2 px-3 py-2 text-sm transition-colors ${active ? "border-[#dc2626] bg-white/[0.04] text-white" : "border-transparent text-gray-400 hover:text-white"}`}
                         >
                           {item.label}
                         </Link>
@@ -48,18 +48,39 @@ export default function DocumentationLayout({
           </nav>
         </aside>
 
-        <main className="min-w-0 px-6 py-10 sm:px-10 lg:px-14">
+        <main className="motion-enter min-w-0 px-6 py-10 sm:px-10 lg:px-14">
+          <details className="mb-8 border border-white/10 xl:hidden">
+            <summary className="cursor-pointer px-4 py-3 text-sm text-gray-300 transition-colors hover:text-white">
+              Browse documentation
+            </summary>
+            <nav aria-label="Mobile documentation navigation" className="grid gap-5 border-t border-white/10 p-4 sm:grid-cols-2">
+              {docNavigation.map((group) => (
+                <section key={group.label}>
+                  <h2 className="mb-2 text-[10px] font-semibold tracking-[0.16em] text-gray-500">{group.label}</h2>
+                  <ul className="space-y-2">
+                    {group.items.map((item) => (
+                      <li key={item.href}>
+                        <Link href={item.href} aria-current={item.href === activePath ? "page" : undefined} className={item.href === activePath ? "text-sm text-white" : "text-sm text-gray-400 hover:text-white"}>
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </nav>
+          </details>
           {children}
         </main>
 
-        <aside className="hidden border-l border-white/10 px-5 py-8 xl:block">
+        <aside className="motion-enter-right hidden border-l border-white/10 px-5 py-8 xl:block">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">On this page</p>
           {sections.length > 0 ? (
             <nav aria-label="On this page">
               <ul className="space-y-3">
                 {sections.map((section) => (
                   <li key={section.id}>
-                    <a href={`#${section.id}`} className="text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
+                    <a href={`#${section.id}`} className="doc-anchor text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
                       {section.title}
                     </a>
                   </li>
