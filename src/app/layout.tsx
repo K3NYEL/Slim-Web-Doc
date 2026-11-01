@@ -36,7 +36,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       
 
     >
-      <body className="min-h-full flex flex-col">{children}<Analytics /><SpeedInsights /></body>
+      <body className="min-h-full flex flex-col">{children}<Analytics />
+      <SpeedInsights/></body>
     </html>
   );
 }
