@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
+import PageTransition from "./components/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       
 
     >
-      <body className="min-h-full flex flex-col">{children}<Analytics />
+      <body className="min-h-full flex flex-col"><PageTransition>{children}</PageTransition><Analytics />
       <SpeedInsights/></body>
     </html>
   );
