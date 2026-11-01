@@ -35,7 +35,7 @@ export default function DocumentationLayout({
                         <Link
                           href={item.href}
                           aria-current={active ? "page" : undefined}
-                          className={`doc-nav-link block border-l-2 px-3 py-2 text-sm transition-colors ${active ? "border-[#dc2626] bg-white/[0.04] text-white" : "border-transparent text-gray-400 hover:text-white"}`}
+                          className={`doc-nav-link block border-l-2 px-3 py-2 text-sm transition-colors ${active ? "border-[#dc2626] bg-white/[0.04] text-white" : "border-transparent text-gray-400 hover:text-[#dc2626]"}`}
                         >
                           {item.label}
                         </Link>
@@ -60,7 +60,7 @@ export default function DocumentationLayout({
                   <ul className="space-y-2">
                     {group.items.map((item) => (
                       <li key={item.href}>
-                        <Link href={item.href} aria-current={item.href === activePath ? "page" : undefined} className={item.href === activePath ? "text-sm text-white" : "text-sm text-gray-400 hover:text-white"}>
+                        <Link href={item.href} aria-current={item.href === activePath ? "page" : undefined} className={item.href === activePath ? "text-sm text-white" : "text-sm text-gray-400 hover:text-[#dc2626]"}>
                           {item.label}
                         </Link>
                       </li>
@@ -90,14 +90,11 @@ export default function DocumentationLayout({
           ) : (
             <p className="text-sm leading-6 text-gray-500">Select a section from the documentation sidebar.</p>
           )}
-          <div className="mt-10 border-t border-white/10 pt-5">
-            <p className="text-xs leading-5 text-gray-500">Slim Executor documentation is being expanded. Verify API details against your installed release.</p>
-          </div>
+ 
         </aside>
       </div>
 
       <footer className="border-t border-white/10 px-6 py-6 text-center text-xs text-gray-500">
-        Slim Executor Documentation · Community-maintained project documentation
       </footer>
     </div>
   );
