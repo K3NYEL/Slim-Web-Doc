@@ -56,6 +56,11 @@ export default async function DocumentationPage({ params }: PageProps) {
             {section.code && (
               <pre className="mt-5 max-w-3xl overflow-x-auto border border-white/10 bg-[#050505] p-4 text-sm leading-6 text-gray-200"><code>{section.code}</code></pre>
             )}
+            {section.note && (
+              <p className="mt-5 max-w-3xl border-l-2 border-[#dc2626] bg-white/[0.03] px-4 py-3 text-sm leading-6 text-gray-400">
+                {section.note}
+              </p>
+            )}
           </section>
         ))}
       </div>

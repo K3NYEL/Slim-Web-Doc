@@ -31,12 +31,16 @@ export const documentationNavigation = [
       { label: "Windows", href: "/docs/windows" },
       { label: "Timers", href: "/docs/timers" },
       { label: "Canvas & Events", href: "/docs/canvas-events" },
+      { label: "Storage & Media", href: "/docs/storage-media" },
+      { label: "3D Preview", href: "/docs/3d-preview" },
     ],
   },
   {
     label: "REFERENCE",
     items: [
       { label: "Examples", href: "/docs/examples" },
+      { label: "API Reference", href: "/docs/api-reference" },
+      { label: "Gamepad & Export", href: "/docs/gamepad-export" },
       { label: "Troubleshooting", href: "/docs/troubleshooting" },
     ],
   },
