@@ -21,8 +21,8 @@ export default function DocumentationLayout({
       </header>
 
       <div className="mx-auto grid w-full max-w-[1600px] flex-1 grid-cols-1 xl:grid-cols-[240px_minmax(0,1fr)_220px]">
-        <aside className="motion-enter-left hidden border-r border-white/10 px-5 py-8 xl:block">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">Documentation</p>
+        <aside className="motion-enter-left hidden border border-r-2 border-gray-700 px-5 py-8 xl:block">
+          <h1 className="mb-6 text-xs uppercase tracking-[0.18em] text-white">Documentation</h1>
           <nav aria-label="Documentation sidebar" className="space-y-8">
             {docNavigation.map((group) => (
               <section key={group.label}>
@@ -35,7 +35,7 @@ export default function DocumentationLayout({
                         <Link
                           href={item.href}
                           aria-current={active ? "page" : undefined}
-                          className={`doc-nav-link block border-l-2 px-3 py-2 text-sm transition-colors ${active ? "border-[#dc2626] bg-white/[0.04] text-white" : "border-transparent text-gray-400 hover:text-[#dc2626]"}`}
+                          className={`doc-nav-link block border-2 px-3 py-2 text-sm transition-colors ${active ? "border-[#dc2626] text-white" : "border-transparent text-gray-400 hover:text-[#dc2626]"}`}
                         >
                           {item.label}
                         </Link>
@@ -73,8 +73,8 @@ export default function DocumentationLayout({
           {children}
         </main>
 
-        <aside className="motion-enter-right hidden border-l border-white/10 px-5 py-8 xl:block">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">On this page</p>
+        <aside className="motion-enter-right hidden border border-l-2 border-gray-700 px-5 py-8 xl:block">
+          <p className="mb-5 text-xs font-semibold  tracking-[0.18em] text-gray-500">On this page</p>
           {sections.length > 0 ? (
             <nav aria-label="On this page">
               <ul className="space-y-3">
@@ -94,7 +94,7 @@ export default function DocumentationLayout({
         </aside>
       </div>
 
-      <footer className="border-t border-white/10 px-6 py-6 text-center text-xs text-gray-500">
+      <footer className="border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500">
       </footer>
     </div>
   );

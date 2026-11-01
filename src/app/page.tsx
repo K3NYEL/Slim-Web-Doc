@@ -1,10 +1,10 @@
 import Link from "next/link";
 import DocumentationLayout from "./components/DocumentationLayout";
+import DivRework from "./components/div/DivRework";
 
 const overviewSections = [
   { id: "what-is-slim-executor", title: "What is Slim Executor?" },
   { id: "what-you-can-do", title: "What you can do" },
-  { id: "how-it-works", title: "How it works" },
   { id: "documentation-map", title: "Documentation map" },
 ];
 
@@ -18,8 +18,7 @@ export default function Home() {
   return (
     <DocumentationLayout activePath="/" sections={overviewSections}>
       <div className="mb-10">
-        <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#dc2626]">OFFICIAL DOCUMENTATION</p>
-        <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Slim Executor Documentation</h1>
+        <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white/80 sm:text-4xl">Slim Executor Documentation</h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400">
           Guides and technical notes for installing Slim Executor, writing Lua scripts, using its application bindings and understanding the runtime.
         </p>
@@ -27,12 +26,15 @@ export default function Home() {
 
       <section id="what-is-slim-executor" className="scroll-mt-28 border-b border-white/10 pb-9">
         <h2 className="mb-4 text-xl font-semibold text-white">What is Slim Executor?</h2>
-        <p className="max-w-3xl leading-7 text-gray-300">
-          Slim Executor is a Windows desktop application built around an embedded Lua scripting runtime. It provides a workspace for creating and executing scripts, reviewing runtime output and experimenting with application-level interfaces from Lua.
-        </p>
-        <p className="mt-4 max-w-3xl leading-7 text-gray-400">
-          The project combines a native application with a Lua runtime and UI bindings. Its purpose is to give developers a place to build, test and run scripts and interactive experiments without needing a separate Lua host for every test.
-        </p>
+        <DivRework>
+
+          <p className="max-w-3xl leading-7 text-gray-300">
+            Slim Executor is a Windows desktop application built around an embedded Lua scripting runtime. It provides a workspace for creating and executing scripts, reviewing runtime output and experimenting with application-level interfaces from Lua.
+          </p>
+          <p className="mt-4 max-w-3xl leading-7 text-gray-400">
+            The project combines a native application with a Lua runtime and UI bindings. Its purpose is to give developers a place to build, test and run scripts and interactive experiments without needing a separate Lua host for every test.
+          </p>
+        </DivRework>
       </section>
 
       <section id="what-you-can-do" className="scroll-mt-28 border-b border-white/10 py-9">
@@ -46,16 +48,6 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </section>
-
-      <section id="how-it-works" className="scroll-mt-28 border-b border-white/10 py-9">
-        <h2 className="mb-4 text-xl font-semibold text-white">How it works</h2>
-        <ol className="max-w-3xl space-y-3 text-sm leading-6 text-gray-300">
-          <li><span className="mr-3 font-mono text-[#dc2626]">01</span>Create or open a Lua script in the application.</li>
-          <li><span className="mr-3 font-mono text-[#dc2626]">02</span>Execute the script using the runtime provided by Slim Executor.</li>
-          <li><span className="mr-3 font-mono text-[#dc2626]">03</span>Review output and runtime errors, then iterate on the script.</li>
-          <li><span className="mr-3 font-mono text-[#dc2626]">04</span>Use documented application bindings when a script needs UI-related behavior.</li>
-        </ol>
       </section>
 
       <section id="documentation-map" className="scroll-mt-28 py-9">
