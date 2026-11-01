@@ -2,38 +2,35 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import PageSkeleton from "./PageSkeleton";
+import RouteSkeletons from "./RouteSkeletons";
 
-function isDocumentationSection(pathname: string) {
+function isDocumentationPath(pathname: string) {
   return pathname.startsWith("/docs/");
 }
 
 export default function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const previousPath = useRef<string | null>(null);
-  const [readyPath, setReadyPath] = useState<string | null>(null);
+  const previousPath = useRef(pathname);
+  const [readyPath, setReadyPath] = useState(pathname);
 
-  const isInternalDocsNavigation =
-    previousPath.current !== null &&
-    isDocumentationSection(previousPath.current) &&
-    isDocumentationSection(pathname);
+  const docsToDocsNavigation =
+    isDocumentationPath(previousPath.current) && isDocumentationPath(pathname);
 
   useEffect(() => {
+    if (previousPath.current === pathname) return;
+
     const previous = previousPath.current;
     previousPath.current = pathname;
 
-    // Moving between documentation sections should be immediate.
-    // Keep the full-page skeleton for the initial visit and top-level page changes.
-    if (previous && isDocumentationSection(previous) && isDocumentationSection(pathname)) {
-      return;
-    }
+    // Sidebar navigation between documentation pages is immediate.
+    if (isDocumentationPath(previous) && isDocumentationPath(pathname)) return;
 
-    const timer = window.setTimeout(() => setReadyPath(pathname), 720);
+    const timer = window.setTimeout(() => setReadyPath(pathname), 560);
     return () => window.clearTimeout(timer);
   }, [pathname]);
 
-  if (readyPath !== pathname && !isInternalDocsNavigation) {
-    return <PageSkeleton />;
+  if (readyPath !== pathname && !docsToDocsNavigation) {
+    return <RouteSkeletons pathname={pathname} />;
   }
 
   return <div className="page-content-reveal">{children}</div>;
