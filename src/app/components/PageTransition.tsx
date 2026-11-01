@@ -15,6 +15,8 @@ export default function PageTransition({ children }: { children: ReactNode }) {
 
   const docsToDocsNavigation =
     isDocumentationPath(previousPath.current) && isDocumentationPath(pathname);
+  const alreadyInsideDocumentation =
+    isDocumentationPath(readyPath) && isDocumentationPath(pathname);
 
   useEffect(() => {
     if (previousPath.current === pathname) return;
@@ -29,7 +31,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
     return () => window.clearTimeout(timer);
   }, [pathname]);
 
-  if (readyPath !== pathname && !docsToDocsNavigation) {
+  if (readyPath !== pathname && !docsToDocsNavigation && !alreadyInsideDocumentation) {
     return <RouteSkeletons pathname={pathname} />;
   }
 
