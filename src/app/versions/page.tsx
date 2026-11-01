@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, Download, GitBranch, ShieldCheck } from "lucide-react";
 import DocumentationLayout from "../../components/docs/DocumentationLayout";
 import { siteConfig } from "../../config/site";
+import { getLatestRelease } from "../../lib/releases";
 
 const sections = [
   { id: "current-release", title: "Stable releases" },
@@ -16,7 +17,8 @@ export const metadata = {
   description: "Find official stable Slim Executor releases, installers and release notes.",
 };
 
-export default function Versions() {
+export default async function Versions() {
+  const latestRelease = await getLatestRelease();
   return (
     <DocumentationLayout activePath="/versions" sections={sections}>
       <div className="mb-10">
@@ -33,9 +35,21 @@ export default function Versions() {
           <h2 className="text-xl font-semibold">Stable releases</h2>
         </div>
         <div className="border border-white/10 bg-white/[0.02] p-6">
-          <p className="text-sm leading-7 text-gray-300">
-            The releases repository is the source of truth for the latest stable version. Open it to see the current release tag, publication date, installer assets, checksums when provided and changelog.
-          </p>
+          {latestRelease.status === "available" ? (
+            <>
+              <p className="text-xs font-semibold tracking-[0.16em] text-[#dc2626]">LATEST STABLE RELEASE</p>
+              <h3 className="mt-2 text-2xl font-semibold text-white">{latestRelease.release.name || latestRelease.release.tag_name}</h3>
+              <p className="mt-2 text-sm text-gray-500">Published {latestRelease.release.published_at ? new Date(latestRelease.release.published_at).toLocaleDateString("en-US") : "date unavailable"}</p>
+              <p className="mt-4 text-sm leading-7 text-gray-300">The official release includes the installer and release notes for this version.</p>
+              {latestRelease.release.assets.length > 0 && (
+                <ul className="mt-4 space-y-2 text-sm">
+                  {latestRelease.release.assets.map((asset) => <li key={asset.name}><a href={asset.browser_download_url} className="text-[#dc2626] hover:underline">{asset.name}</a></li>)}
+                </ul>
+              )}
+            </>
+          ) : (
+            <p className="text-sm leading-7 text-gray-300">The latest release could not be loaded automatically. {latestRelease.message} Open the official repository to review the current stable version.</p>
+          )}
           <Link href={releasesUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 bg-[#dc2626] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-red-700">
             View official releases <ArrowUpRight size={16} />
           </Link>

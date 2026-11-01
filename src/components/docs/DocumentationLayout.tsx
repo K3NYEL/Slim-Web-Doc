@@ -3,6 +3,7 @@ import Link from "next/link";
 import NavBar from "../navigation/NavBar";
 import PageLoading from "../ui/PageLoading";
 import { documentationNavigation } from "../../config/navigation";
+import { siteConfig } from "../../config/site";
 
 type DocumentationLayoutProps = {
   children: ReactNode;
@@ -94,7 +95,12 @@ export default function DocumentationLayout({
         </aside>
       </div>
 
-      <footer className="border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500" />
+      <footer className="border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <Link href="/contacto" className="hover:text-white">Support</Link>
+          <Link href={siteConfig.repositoryUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">Releases</Link>
+        </div>
+      </footer>
     </div>
   );
 }

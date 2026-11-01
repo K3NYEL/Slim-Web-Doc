@@ -3,14 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, ArrowDownToLine, CheckCircle } from "lucide-react";
 import Button from "../ui/Button";
 import { primaryNavigation } from "../../config/navigation";
 import { siteConfig } from "../../config/site";
+import SearchDialog from "./SearchDialog";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [downloadMessage, setDownloadMessage] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!downloadMessage) return;
@@ -32,15 +35,16 @@ export default function NavBar() {
         <ul className="hidden items-center gap-8 md:flex">
           {primaryNavigation.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="group relative text-sm text-gray-400 transition-colors duration-200 hover:text-white">
+              <Link href={link.href} aria-current={pathname === link.href ? "page" : undefined} className={`group relative text-sm transition-colors duration-200 hover:text-white ${pathname === link.href ? "text-white" : "text-gray-400"}`}>
                 {link.label}
-                <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#dc2626] transition-all duration-200 group-hover:w-full" />
+                <span className={`absolute -bottom-2 left-0 h-px bg-[#dc2626] transition-all duration-200 ${pathname === link.href ? "w-full" : "w-0 group-hover:w-full"}`} />
               </Link>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
+          <SearchDialog />
           <Link href={siteConfig.repositoryUrl} target="_blank" rel="noopener noreferrer">
             <Button variant="outline" rightIcon={<ArrowUpRight size={16} />}>Repository</Button>
           </Link>
@@ -73,13 +77,14 @@ export default function NavBar() {
           <ul className="flex flex-col">
             {primaryNavigation.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} onClick={() => setMenuOpen(false)} className="block border-b border-white/5 py-4 text-sm text-gray-300 transition-colors hover:text-white">
+                <Link href={link.href} onClick={() => setMenuOpen(false)} aria-current={pathname === link.href ? "page" : undefined} className={`block border-b border-white/5 py-4 text-sm transition-colors hover:text-white ${pathname === link.href ? "text-white" : "text-gray-300"}`}>
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
           <div className="mt-5 grid gap-3">
+            <SearchDialog />
             <Link href={siteConfig.repositoryUrl} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="block">
               <Button fullWidth rightIcon={<ArrowUpRight size={16} />}>Repository</Button>
             </Link>

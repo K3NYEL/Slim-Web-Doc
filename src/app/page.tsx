@@ -1,6 +1,8 @@
 import Link from "next/link";
 import DocumentationLayout from "../components/docs/DocumentationLayout";
 import ContentPanel from "../components/ui/ContentPanel";
+import { ArrowRight, Download, GitBranch, Terminal } from "lucide-react";
+import { siteConfig } from "../config/site";
 
 const overviewSections = [
   { id: "what-is-slim-executor", title: "What is Slim Executor?" },
@@ -18,10 +20,16 @@ export default function Home() {
   return (
     <DocumentationLayout activePath="/" sections={overviewSections}>
       <div className="mb-10">
+        <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[#dc2626]">WINDOWS LUA DEVELOPMENT</p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white/80 sm:text-4xl">Slim Executor Documentation</h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400">
           Guides and technical notes for installing Slim Executor, writing Lua scripts, using its application bindings and understanding the runtime.
         </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link href="/docs/quick-start" className="inline-flex items-center gap-2 bg-[#dc2626] px-5 py-3 text-sm font-semibold text-white hover:bg-red-700">Start building <ArrowRight size={16} /></Link>
+          <a href={siteConfig.downloadUrl} download className="inline-flex items-center gap-2 border border-white/15 px-5 py-3 text-sm text-gray-200 hover:border-[#dc2626]"><Download size={16} /> Download manual</a>
+          <Link href={siteConfig.sourceRepositoryUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/15 px-5 py-3 text-sm text-gray-200 hover:border-[#dc2626]"> <GitBranch size={16} /> Source code</Link>
+        </div>
       </div>
 
       <section id="what-is-slim-executor" className="scroll-mt-28 border-b border-white/10 pb-9">
@@ -57,6 +65,14 @@ export default function Home() {
           <Link href="/docs/installation" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Installation</Link>
           <Link href="/docs/quick-start" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Quick Start</Link>
           <Link href="/docs/examples" className="border border-white/15 px-4 py-2 text-sm text-gray-200 hover:border-[#dc2626]">Examples</Link>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10 py-9">
+        <div className="grid gap-3 md:grid-cols-3">
+          <div className="border border-white/10 p-5"><Terminal className="mb-4 text-[#dc2626]" size={21} /><h2 className="font-semibold">Script-first workflow</h2><p className="mt-2 text-sm leading-6 text-gray-400">Write, run and iterate on Lua scripts without leaving the desktop workspace.</p></div>
+          <div className="border border-white/10 p-5"><h2 className="font-semibold">Verified guidance</h2><p className="mt-2 text-sm leading-6 text-gray-400">API notes distinguish tested runtime behavior from features that still need version-specific verification.</p></div>
+          <div className="border border-white/10 p-5"><h2 className="font-semibold">Release-aware docs</h2><p className="mt-2 text-sm leading-6 text-gray-400">Use the official release channel and check version notes before applying examples.</p></div>
         </div>
       </section>
     </DocumentationLayout>
