@@ -1,5 +1,4 @@
-// import Button from './components/buttons/Buttons';
-import DivRework from './components/div_rework/DivRework';
+import Button from './components/buttons/Buttons';
 import NavBar from './components/NavBar';
 
 export default function Home() {
@@ -61,9 +60,6 @@ export default function Home() {
           <p className="text-gray-300">
             Slim Executor is a simple IDE 
           </p>
-          <DivRework>
-            <p>Hola</p>
-          </DivRework>
         </section>
         <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
           <h2 className="text-lg font-semibold">
