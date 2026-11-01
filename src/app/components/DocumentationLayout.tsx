@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import NavBar from "./NavBar";
-import PageLoading from "./PageLoading";
 import { docNavigation } from "../lib/docs";
 
 type DocumentationLayoutProps = {
@@ -71,7 +70,7 @@ export default function DocumentationLayout({
               ))}
             </nav>
           </details>
-          <PageLoading>{children}</PageLoading>
+          {children}
         </main>
 
         <aside className="motion-enter-right hidden border border-l-2 border-gray-700 px-5 py-8 xl:block">
