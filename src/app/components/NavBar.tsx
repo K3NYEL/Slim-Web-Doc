@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight, ArrowDownToLine, CheckCircle } from "lucide-react";
 
 import Button from "./buttons/Buttons";
-import Logo from "@public/slim-executor-mark.svg";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -45,7 +44,7 @@ export default function NavBar() {
           onClick={() => setMenuOpen(false)}
         >
           <Image
-            src={Logo}
+            src="/slim-executor-mark.svg"
             alt="Slim Executor Logo"
             width={40}
             height={40}
