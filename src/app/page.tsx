@@ -1,6 +1,6 @@
 import Link from "next/link";
-import DocumentationLayout from "./components/DocumentationLayout";
-import DivRework from "./components/div/DivRework";
+import DocumentationLayout from "../components/docs/DocumentationLayout";
+import ContentPanel from "../components/ui/ContentPanel";
 
 const overviewSections = [
   { id: "what-is-slim-executor", title: "What is Slim Executor?" },
@@ -26,7 +26,7 @@ export default function Home() {
 
       <section id="what-is-slim-executor" className="scroll-mt-28 border-b border-white/10 pb-9">
         <h2 className="mb-4 text-xl font-semibold text-white">What is Slim Executor?</h2>
-        <DivRework>
+        <ContentPanel>
 
           <p className="max-w-3xl leading-7 text-gray-300">
             Slim Executor is a Windows desktop application built around an embedded Lua scripting runtime. It provides a workspace for creating and executing scripts, reviewing runtime output and experimenting with application-level interfaces from Lua.
@@ -34,7 +34,7 @@ export default function Home() {
           <p className="mt-4 max-w-3xl leading-7 text-gray-400">
             The project combines a native application with a Lua runtime and UI bindings. Its purpose is to give developers a place to build, test and run scripts and interactive experiments without needing a separate Lua host for every test.
           </p>
-        </DivRework>
+        </ContentPanel>
       </section>
 
       <section id="what-you-can-do" className="scroll-mt-28 border-b border-white/10 py-9">

@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import NavBar from "./NavBar";
-import PageLoading from "./PageLoading";
-import { docNavigation } from "../lib/docs";
+import NavBar from "../navigation/NavBar";
+import PageLoading from "../ui/PageLoading";
+import { documentationNavigation } from "../../config/navigation";
 
 type DocumentationLayoutProps = {
   children: ReactNode;
@@ -25,7 +25,7 @@ export default function DocumentationLayout({
         <aside className="motion-enter-left hidden border border-r-2 border-gray-700 px-5 py-8 xl:block">
           <h1 className="mb-6 text-xs uppercase tracking-[0.18em] text-white">Documentation</h1>
           <nav aria-label="Documentation sidebar" className="space-y-8">
-            {docNavigation.map((group) => (
+            {documentationNavigation.map((group) => (
               <section key={group.label}>
                 <h2 className="mb-3 text-[11px] font-semibold tracking-[0.16em] text-gray-500">{group.label}</h2>
                 <ul className="space-y-1">
@@ -55,7 +55,7 @@ export default function DocumentationLayout({
               Browse documentation
             </summary>
             <nav aria-label="Mobile documentation navigation" className="grid gap-5 border-t border-white/10 p-4 sm:grid-cols-2">
-              {docNavigation.map((group) => (
+              {documentationNavigation.map((group) => (
                 <section key={group.label}>
                   <h2 className="mb-2 text-[10px] font-semibold tracking-[0.16em] text-gray-500">{group.label}</h2>
                   <ul className="space-y-2">

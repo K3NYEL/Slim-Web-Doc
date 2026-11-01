@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 import type { Metadata } from "next";
+import { siteConfig } from "../config/site";
 
 export const metadata: Metadata = {
-  title: "Slim Executor | Official Documentation",
-  description:
-    "Official Slim Executor documentation, installation guides, Lua API reference and examples.",
+  title: `${siteConfig.name} | Official Documentation`,
+  description: siteConfig.description,
   icons: {
     icon: "/slim-executor-mark.svg",
   },

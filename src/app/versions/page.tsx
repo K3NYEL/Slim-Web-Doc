@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Download, GitBranch, ShieldCheck } from "lucide-react";
-import DocumentationLayout from "../components/DocumentationLayout";
+import DocumentationLayout from "../../components/docs/DocumentationLayout";
+import { siteConfig } from "../../config/site";
 
 const sections = [
   { id: "current-release", title: "Stable releases" },
@@ -8,7 +9,7 @@ const sections = [
   { id: "update-process", title: "Updating Slim Executor" },
 ];
 
-const releasesUrl = "https://github.com/K3NYEL/Slim-Executor-Releases/releases";
+const releasesUrl = `${siteConfig.repositoryUrl}/releases`;
 
 export const metadata = {
   title: "Versions & Releases | Slim Executor",
@@ -62,7 +63,7 @@ export default function Versions() {
       </section>
 
       <div className="mt-12 border-t border-white/10 pt-6">
-        <Link href="https://github.com/K3NYEL/Slim-Executor-Releases" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-gray-500 transition-colors hover:text-white">
+        <Link href={siteConfig.repositoryUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-gray-500 transition-colors hover:text-white">
           <GitBranch size={14} /> Public releases repository <ArrowUpRight size={13} />
         </Link>
       </div>

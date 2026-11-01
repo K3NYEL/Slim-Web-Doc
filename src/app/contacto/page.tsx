@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Mail, Bug, MessageSquare } from "lucide-react";
-import DocumentationLayout from "../components/DocumentationLayout";
+import DocumentationLayout from "../../components/docs/DocumentationLayout";
+import { siteConfig } from "../../config/site";
 
 const sections = [
   { id: "support", title: "Support" },
@@ -27,13 +28,13 @@ export default function Contacto() {
       <section id="support" className="mb-10 scroll-mt-28 border-b border-white/10 pb-9">
         <h2 className="mb-5 text-xl font-semibold">Support channels</h2>
         <div className="motion-stagger grid gap-3 md:grid-cols-2">
-          <a href="mailto:contact@slimexecutor.com" className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
+          <a href={`mailto:${siteConfig.supportEmail}`} className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
             <Mail className="mb-4 text-[#dc2626]" size={21} />
             <h3 className="font-semibold">Email</h3>
-            <p className="mt-2 text-sm text-gray-400">contact@slimexecutor.com</p>
+            <p className="mt-2 text-sm text-gray-400">{siteConfig.supportEmail}</p>
             <span className="mt-4 inline-flex items-center gap-2 text-xs text-gray-300">Send an email <ArrowUpRight size={14} /></span>
           </a>
-          <Link href="https://github.com/K3NYEL/Slim_Executor" target="_blank" rel="noopener noreferrer" className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
+          <Link href={siteConfig.sourceRepositoryUrl} target="_blank" rel="noopener noreferrer" className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
             <MessageSquare className="mb-4 text-[#dc2626]" size={21} />
             <h3 className="font-semibold">GitHub repository</h3>
             <p className="mt-2 text-sm text-gray-400">Review the project and its development history.</p>
@@ -47,7 +48,7 @@ export default function Contacto() {
         <p className="mb-5 max-w-3xl text-sm leading-7 text-gray-400">
           For reproducible bugs, use the GitHub issue tracker. Include the application version, Windows version, the steps that led to the problem and the complete error output. Remove private information before posting logs.
         </p>
-        <Link href="https://github.com/K3NYEL/Slim_Executor/issues" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#dc2626]/60 px-4 py-3 text-sm text-white transition-colors hover:bg-[#dc2626]/10">
+        <Link href={`${siteConfig.sourceRepositoryUrl}/issues`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#dc2626]/60 px-4 py-3 text-sm text-white transition-colors hover:bg-[#dc2626]/10">
           <Bug size={16} /> Open issue tracker <ArrowUpRight size={15} />
         </Link>
       </section>

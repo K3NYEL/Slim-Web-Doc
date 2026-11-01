@@ -4,14 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import "./button.css";
 
-type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "outline"
-  | "ghost"
-  | "danger"
-  | "success";
-
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "danger" | "success";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -60,28 +53,13 @@ export default function Button({
     }, 450);
   };
 
-  const classes = [
-    "btn",
-    `btn--${variant}`,
-    `btn--${size}`,
-    fullWidth ? "btn--full" : "",
-    className,
-  ].filter(Boolean).join(" ");
+  const classes = ["btn", `btn--${variant}`, `btn--${size}`, fullWidth ? "btn--full" : "", className]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <button
-      {...props}
-      type={type}
-      onClick={handleClick}
-      className={classes}
-      disabled={disabled || isLoading}
-      aria-busy={isLoading || undefined}
-    >
-      {isLoading ? (
-        <span className="btn__spinner" aria-hidden="true" />
-      ) : (
-        leftIcon && <span className="btn__icon">{leftIcon}</span>
-      )}
+    <button {...props} type={type} onClick={handleClick} className={classes} disabled={disabled || isLoading} aria-busy={isLoading || undefined}>
+      {isLoading ? <span className="btn__spinner" aria-hidden="true" /> : leftIcon && <span className="btn__icon">{leftIcon}</span>}
       <span>{children}</span>
       {!isLoading && rightIcon && <span className="btn__icon">{rightIcon}</span>}
     </button>

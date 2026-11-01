@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import DocumentationLayout from "../../components/DocumentationLayout";
-import { docPages } from "../../lib/docs";
+import DocumentationLayout from "../../../components/docs/DocumentationLayout";
+import { docPages } from "../../../content/docs";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
