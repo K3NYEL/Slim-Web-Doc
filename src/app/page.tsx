@@ -1,6 +1,7 @@
 // import Button from './components/buttons/Buttons';
 import NavBar from './components/NavBar';
-import Div from './components/div/DivRework';
+import ActionButton from './components/buttons/ActionButton';
+import DivRework from './components/div/DivRework';
 
 export default function Home() {
   return (
@@ -61,11 +62,12 @@ export default function Home() {
           <p className="text-gray-300">
             Slim Executor is a simple IDE 
           </p>
-          <Div>
+          <DivRework>
             <p className="text-gray-300">
               It provides a user-friendly interface for developing and running Lua scripts.
             </p>
-          </Div>
+            <ActionButton />
+          </DivRework>
         </section>
         <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
           <h2 className="text-lg font-semibold">
