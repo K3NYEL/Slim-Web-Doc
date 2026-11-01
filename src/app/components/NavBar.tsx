@@ -32,7 +32,7 @@ export default function NavBar() {
   }, [downloadMessage]);
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-gray-700 bg-[#090909]/95 text-white backdrop-blur-md">
+    <header className=" border-b-2 border-gray-700 bg-[#090909]/95 text-white backdrop-blur-md">
       <nav
         aria-label="Navegación principal"
         className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
