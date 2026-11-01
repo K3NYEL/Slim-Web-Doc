@@ -1,6 +1,5 @@
 // import Button from './components/buttons/Buttons';
 import NavBar from './components/NavBar';
-import ActionButton from './components/buttons/ActionButton';
 import DivRework from './components/div/DivRework';
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
       </header>
       <section id="overview" className="flex flex-row gap-8 min-h-screen bg-[#090909]">
         <aside className="h-100% w-64 shrink-0 border-r-2 border-gray-700 p-6">
-          <h2 className="mb-6 text-lg font-bold">
+          {/* <h2 className="mb-6 text-lg font-bold">
             Documentation
           </h2>
 
@@ -50,7 +49,7 @@ export default function Home() {
                 <a href="#functions" className="text-white transition-colors hover:text-[#dc2626]">Functions</a>
               </li>
             </ul>
-          </nav>
+          </nav> */}
         </aside>
         <section id="documentation-section" className="min-w-0 flex-1 p-6 text-white flex flex-col gap-2">
           <h1 className="text-gray-400 mb-4 flex items-center gap-2 text-3xl font-bold">
@@ -60,17 +59,16 @@ export default function Home() {
             WHAT IS SLIM EXECUTOR?
           </h2>
           <p className="text-gray-300">
-            Slim Executor is a simple IDE 
+            
           </p>
           <DivRework>
             <p className="text-gray-300">
               It provides a user-friendly interface for developing and running Lua scripts.
             </p>
-            <ActionButton />
           </DivRework>
         </section>
         <aside className="h-100% w-64 shrink-0 border-l-2 border-gray-700 p-6">
-          <h2 className="text-lg font-semibold">
+          {/* <h2 className="text-lg font-semibold">
             Quick Links
           </h2>
           <ul className="mt-2 space-y-2">
@@ -89,7 +87,7 @@ export default function Home() {
                 Examples
               </a>
             </li>
-          </ul>
+          </ul> */}
         </aside>
       </section>
       <footer className="bg-[#090909] border-t-2 border-gray-700 p-4 text-center text-white">
