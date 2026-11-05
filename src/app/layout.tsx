@@ -19,6 +19,9 @@ import { siteConfig } from "../config/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: siteConfig.url,
+  },
   title: `${siteConfig.name} | Official Documentation`,
   description: siteConfig.description,
   applicationName: siteConfig.name,
