@@ -24,8 +24,6 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
 
     if (sectionElements.length === 0) return;
 
-    setActiveSection(sectionElements[0].id);
-
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleSections = entries
