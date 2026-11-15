@@ -9,7 +9,7 @@ import Button from "../ui/Button";
 import { primaryNavigation } from "../../config/navigation";
 import { siteConfig } from "../../config/site";
 import SearchDialog from "./SearchDialog";
-const basePath = process.env.GITHUB_PAGES === 'true' ? '/Slim-Web-Doc' : '';
+const basePath = process.env.NODE_ENV === "production" ? "/Slim-Web-Doc" : "";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
