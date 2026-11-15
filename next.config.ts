@@ -5,6 +5,7 @@ const repoName = '/Slim-Web-Doc';
 const nextConfig: NextConfig = {
   output: isGiithuPages ? 'export' : undefined,
   cacheComponents: !isGiithuPages,
+  basePath: isGiithuPages ? repoName : '',
   images: {
     unoptimized: isGiithuPages,
   },
