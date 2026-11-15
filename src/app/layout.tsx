@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
+const basePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true' ? '/Slim-Web-Doc' : '';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,16 +31,16 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | Official Documentation`,
     description: siteConfig.description,
     url: siteConfig.url,
-    images: [{ url: "/SlimExecutor.ico", alt: "Slim Executor" }],
+    images: [{ url: `${basePath}/SlimExecutor.ico`, alt: "Slim Executor" }],
   },
   twitter: {
     card: "summary",
     title: `${siteConfig.name} | Official Documentation`,
     description: siteConfig.description,
-    images: ["/SlimExecutor.ico"],
+    images: [`${basePath}/SlimExecutor.ico`],
   },
   icons: {
-    icon: "/SlimExecutor.ico",
+    icon: `${basePath}/SlimExecutor.ico`,
   },
   verification: {
     google: "NZSWUeQDIAnjdbr3sKnV9MFDjegc4q8X3LMfCXuqfQo",
