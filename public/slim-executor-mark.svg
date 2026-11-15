@@ -1,3 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-  <path fill="#EC0101" d="M22 3H9L4 9v4l15 4v3l-3 4H4v4h16l6-6v-7L11 11V9l2-2h9z"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1200.0012 630.00064"
+   version="1.1"
+   id="svg44"
+   sodipodi:docname="slim-executor-mark.svg"
+   width="1200"
+   height="630"
+   inkscape:export-filename="slim-executor-mark.png"
+   inkscape:export-xdpi="96.308334"
+   inkscape:export-ydpi="96.308334"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs48" /><sodipodi:namedview
+     id="namedview46"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="0.29479167"
+     inkscape:cx="147.56184"
+     inkscape:cy="373.14488"
+     inkscape:window-width="1366"
+     inkscape:window-height="732"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg44" /><path
+     fill="#ec0101"
+     d="M 741.40284,62.496336 H 478.79883 L 377.79717,183.69835 v 80.80117 l 303.00477,80.80132 v 60.6009 L 620.2009,486.70291 H 377.79717 V 567.5043 H 701.00231 L 822.20403,446.30236 V 304.90007 L 519.19946,224.0989 v -40.40055 l 40.40055,-40.40062 h 181.80283 z"
+     id="path42-5"
+     style="stroke-width:20.2003" /></svg>

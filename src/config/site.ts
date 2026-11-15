@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Slim Executor",
   documentationName: "S.E Documentation",
-  url: "https://github.io",
+  url: "https://k3nyel.github.io/Slim-Web-Doc",
   description:
     "Official Slim Executor documentation, installation guides, Lua API reference and examples.",
   repositoryUrl: "https://github.com/K3NYEL/Slim-Executor-Releases",
