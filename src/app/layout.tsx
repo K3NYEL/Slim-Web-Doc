@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,16 +30,16 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | Official Documentation`,
     description: siteConfig.description,
     url: siteConfig.url,
-    images: [{ url: "/slim-executor-mark.svg", alt: "Slim Executor" }],
+    images: [{ url: "/SlimExecutor.ico", alt: "Slim Executor" }],
   },
   twitter: {
     card: "summary",
     title: `${siteConfig.name} | Official Documentation`,
     description: siteConfig.description,
-    images: ["/slim-executor-mark.svg"],
+    images: ["/SlimExecutor.ico"],
   },
   icons: {
-    icon: "/slim-executor-mark.svg",
+    icon: "/SlimExecutor.ico",
   },
   verification: {
     google: "NZSWUeQDIAnjdbr3sKnV9MFDjegc4q8X3LMfCXuqfQo",
