@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 export const siteConfig = {
   name: "Slim Executor",
   documentationName: "S.E Documentation",
