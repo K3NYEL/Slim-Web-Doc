@@ -4,6 +4,7 @@ import NavBar from "../navigation/NavBar";
 import PageLoading from "../ui/PageLoading";
 import { documentationNavigation } from "../../config/navigation";
 import { siteConfig } from "../../config/site";
+import ActiveSectionNav from "./ActiveSectionNav";
 
 type DocumentationLayoutProps = {
   children: ReactNode;
@@ -76,19 +77,9 @@ export default function DocumentationLayout({
         </main>
 
         <aside className="motion-enter-right hidden border border-l-2 border-gray-700 px-5 py-8 xl:block">
-          <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">On this page</p>
+          <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">ON THIS PAGE</p>
           {sections.length > 0 ? (
-            <nav aria-label="On this page">
-              <ul className="space-y-3">
-                {sections.map((section) => (
-                  <li key={section.id}>
-                    <a href={`#${section.id}`} className="doc-anchor text-sm text-gray-400 transition-colors hover:text-[#dc2626]">
-                      {section.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <ActiveSectionNav sections={sections} />
           ) : (
             <p className="text-sm leading-6 text-gray-500">Select a section from the documentation sidebar.</p>
           )}
