@@ -24,39 +24,38 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
 
     if (sectionElements.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const updateActiveSection = () => {
+      const rootTop = scrollRoot.getBoundingClientRect().top;
+      const activationPoint = rootTop + 140;
 
-        if (visibleSections[0]) {
-          setActiveSection((visibleSections[0].target as HTMLElement).id);
+      let currentSection = sectionElements[0];
+
+      for (const section of sectionElements) {
+        if (section.getBoundingClientRect().top <= activationPoint) {
+          currentSection = section;
+        } else {
+          break;
         }
-      },
-      {
-        root: scrollRoot,
-        rootMargin: "-96px 0px -70% 0px",
-        threshold: 0,
-      },
-    );
+      }
 
-    sectionElements.forEach((section) => observer.observe(section));
-
-    const handleScroll = () => {
       const isAtBottom =
         scrollRoot.scrollTop + scrollRoot.clientHeight >= scrollRoot.scrollHeight - 4;
 
       if (isAtBottom) {
-        setActiveSection(sectionElements[sectionElements.length - 1].id);
+        currentSection = sectionElements[sectionElements.length - 1];
       }
+
+      setActiveSection(currentSection.id);
     };
 
-    scrollRoot.addEventListener("scroll", handleScroll, { passive: true });
+    updateActiveSection();
+
+    scrollRoot.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
-      observer.disconnect();
-      scrollRoot.removeEventListener("scroll", handleScroll);
+      scrollRoot.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, [sections]);
 
