@@ -28,13 +28,12 @@ export default function Contacto() {
       <section id="support" className="mb-10 scroll-mt-28 border-b border-white/10 pb-9">
         <h2 className="mb-5 text-xl font-semibold">Support channels</h2>
         <div className="motion-stagger grid gap-3 md:grid-cols-2">
-          <a href={`mailto:${siteConfig.supportEmail}`} className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
+          <a href={`mailto:${siteConfig.supportEmail}`} className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/2">
             <Mail className="mb-4 text-[#dc2626]" size={21} />
             <h3 className="font-semibold">Email</h3>
-            <p className="mt-2 text-sm text-gray-400">{siteConfig.supportEmail}</p>
             <span className="mt-4 inline-flex items-center gap-2 text-xs text-gray-300">Send an email <ArrowUpRight size={14} /></span>
           </a>
-          <Link href={siteConfig.sourceRepositoryUrl} target="_blank" rel="noopener noreferrer" className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
+          <Link href={siteConfig.sourceRepositoryUrl} target="_blank" rel="noopener noreferrer" className="interactive-card border border-white/10 p-5 hover:border-[#dc2626]/70 hover:bg-white/2">
             <MessageSquare className="mb-4 text-[#dc2626]" size={21} />
             <h3 className="font-semibold">GitHub repository</h3>
             <p className="mt-2 text-sm text-gray-400">Review the project and its development history.</p>

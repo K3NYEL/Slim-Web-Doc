@@ -28,7 +28,7 @@ export default function NavBar() {
         className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
       >
         <Link href="/" aria-label="Slim Executor documentation home" className="flex shrink-0 items-center gap-3" onClick={() => setMenuOpen(false)}>
-          <Image src="/slim-executor-mark.svg" alt="Slim Executor Logo" width={40} height={40} priority className="h-10 w-10 object-contain transition-transform duration-300 hover:rotate-[-6deg] hover:scale-105" />
+          <Image src="/slim-executor-mark.svg" alt="Slim Executor Logo" width={40} height={40} priority className="h-10 w-10 object-contain transition-transform duration-300 hover:rotate-6 hover:scale-105" />
           <span className="text-lg font-bold tracking-tight">{siteConfig.documentationName}</span>
         </Link>
 
