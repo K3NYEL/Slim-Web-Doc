@@ -57,7 +57,7 @@ export default async function DocumentationPage({ params }: PageProps) {
               <pre className="mt-5 max-w-3xl overflow-x-auto border border-white/10 bg-[#050505] p-4 text-sm leading-6 text-gray-200"><code>{section.code}</code></pre>
             )}
             {section.note && (
-              <p className="mt-5 max-w-3xl border-l-2 border-[#dc2626] bg-white/[0.03] px-4 py-3 text-sm leading-6 text-gray-400">
+              <p className="mt-5 max-w-3xl border-l-2 border-[#dc2626] bg-white/3 px-4 py-3 text-sm leading-6 text-gray-400">
                 {section.note}
               </p>
             )}
@@ -67,7 +67,7 @@ export default async function DocumentationPage({ params }: PageProps) {
 
       <nav aria-label="Documentation pagination" className="mt-12 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2">
         {previousPage ? (
-          <Link href={`/docs/${previousPage.slug}`} className="border border-2 border-gray-700 p-4 hover:border-[#dc2626]/70">
+          <Link href={`/docs/${previousPage.slug}`} className="border-2 border-gray-700 p-4 hover:border-[#dc2626]/70">
             <span className="block text-xs text-gray-500">Previous</span>
             <span className="mt-1 block text-sm text-white">← {previousPage.title}</span>
           </Link>

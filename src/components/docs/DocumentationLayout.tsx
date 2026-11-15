@@ -17,7 +17,7 @@ export default function DocumentationLayout({
   sections = [],
 }: DocumentationLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-[#090909] text-white">
+    <div className="flex min-h-screen flex-col bg-[#090909] text-white ">
       <header className="sticky top-0 z-50">
         <NavBar />
       </header>
@@ -50,7 +50,7 @@ export default function DocumentationLayout({
           </nav>
         </aside>
 
-        <main className="motion-enter min-w-0 px-6 py-10 sm:px-10 lg:px-14">
+        <main className="h-screen motion-enter min-w-0 px-6 py-10 sm:px-10 lg:px-14 overflow-y-auto overflow-x-hidden">
           <details className="mb-8 border border-white/10 xl:hidden">
             <summary className="cursor-pointer px-4 py-3 text-sm text-gray-300 transition-colors hover:text-white">
               Browse documentation

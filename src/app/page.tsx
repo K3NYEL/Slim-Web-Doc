@@ -48,7 +48,7 @@ export default function Home() {
         <h2 className="mb-4 text-xl font-semibold text-white">What you can do</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {featureCards.map((card) => (
-            <Link key={card.href} href={card.href} className="border border-white/10 p-5 transition-colors hover:border-[#dc2626]/70 hover:bg-white/[0.02]">
+            <Link key={card.href} href={card.href} className="border border-white/10 p-5 transition-colors hover:border-[#dc2626]/70 hover:bg-white/2">
               <h3 className="mb-2 font-semibold text-white">{card.title}</h3>
               <p className="text-sm leading-6 text-gray-400">{card.description}</p>
               <span className="mt-5 inline-block text-xs font-medium text-[#dc2626]">Explore documentation →</span>
