@@ -17,13 +17,13 @@ export default function DocumentationLayout({
   sections = [],
 }: DocumentationLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-[#090909] text-white ">
-      <header className="sticky top-0 z-50">
+    <div className="flex h-dvh flex-col overflow-hidden bg-[#090909] text-white">
+      <header className="sticky top-0 z-50 shrink-0">
         <NavBar />
       </header>
 
-      <div className="mx-auto grid w-full max-w-[1600px] flex-1 grid-cols-1 xl:grid-cols-[240px_minmax(0,1fr)_220px]">
-        <aside className="motion-enter-left hidden border border-r-2 border-gray-700 px-5 py-8 xl:block">
+      <div className="mx-auto grid w-full max-w-[1600px] flex-1 min-h-0 grid-cols-1 overflow-hidden xl:grid-cols-[240px_minmax(0,1fr)_220px]">
+        <aside className="motion-enter-left hidden min-h-0 overflow-y-auto border border-r-2 border-gray-700 px-5 py-8 xl:block">
           <h1 className="mb-6 text-xs uppercase tracking-[0.18em] text-white">Documentation</h1>
           <nav aria-label="Documentation sidebar" className="space-y-8">
             {documentationNavigation.map((group) => (
@@ -50,7 +50,7 @@ export default function DocumentationLayout({
           </nav>
         </aside>
 
-        <main className="h-screen motion-enter min-w-0 px-6 py-10 sm:px-10 lg:px-14 overflow-y-auto overflow-x-hidden">
+        <main className="motion-enter min-h-0 min-w-0 overflow-x-hidden overflow-y-auto px-6 py-10 sm:px-10 lg:px-14">
           <details className="mb-8 border border-white/10 xl:hidden">
             <summary className="cursor-pointer px-4 py-3 text-sm text-gray-300 transition-colors hover:text-white">
               Browse documentation
@@ -75,7 +75,7 @@ export default function DocumentationLayout({
           <PageLoading>{children}</PageLoading>
         </main>
 
-        <aside className="motion-enter-right hidden border border-l-2 border-gray-700 px-5 py-8 xl:block">
+        <aside className="motion-enter-right hidden min-h-0 overflow-y-auto border border-l-2 border-gray-700 px-5 py-8 xl:block">
           <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">On this page</p>
           {sections.length > 0 ? (
             <nav aria-label="On this page">
@@ -95,7 +95,7 @@ export default function DocumentationLayout({
         </aside>
       </div>
 
-      <footer className="border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500">
+      <footer className="shrink-0 border-t-2 border-gray-700 px-6 py-6 text-center text-xs text-gray-500">
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           <Link href="/contacto" className="hover:text-white">Support</Link>
           <Link href={siteConfig.repositoryUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">Releases</Link>
