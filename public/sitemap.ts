@@ -1,7 +1,7 @@
 
 import type { MetadataRoute } from 'next'
-import { docPages } from '../content/docs'
-import { siteConfig } from '../config/site'
+import { docPages } from '../src/content/docs'
+import { siteConfig } from '../src/config/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url.replace(/\/$/, '')
