@@ -18,16 +18,17 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
     const scrollRoot = document.querySelector<HTMLElement>("[data-doc-scroll-root]");
     if (!scrollRoot || sections.length === 0) return;
 
-    const sectionElements = sections
-      .map(({ id }) => document.getElementById(id))
-      .filter((element): element is HTMLElement => element instanceof HTMLElement);
+    let sectionElements: HTMLElement[] = [];
 
-    if (sectionElements.length === 0) return;
+    const findSections = () =>
+      sections
+        .map(({ id }) => document.getElementById(id))
+        .filter((element): element is HTMLElement => element instanceof HTMLElement);
 
     const updateActiveSection = () => {
-      const rootTop = scrollRoot.getBoundingClientRect().top;
-      const activationPoint = rootTop + 140;
+      if (sectionElements.length === 0) return;
 
+      const activationPoint = scrollRoot.getBoundingClientRect().top + 140;
       let currentSection = sectionElements[0];
 
       for (const section of sectionElements) {
@@ -48,12 +49,33 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
       setActiveSection(currentSection.id);
     };
 
-    updateActiveSection();
+    const initializeTracking = () => {
+      const foundSections = findSections();
+      if (foundSections.length === 0) return false;
+
+      sectionElements = foundSections;
+      updateActiveSection();
+      return true;
+    };
 
     scrollRoot.addEventListener("scroll", updateActiveSection, { passive: true });
     window.addEventListener("resize", updateActiveSection);
 
+    const contentObserver = new MutationObserver(() => {
+      if (initializeTracking()) {
+        contentObserver.disconnect();
+      }
+    });
+
+    if (!initializeTracking()) {
+      contentObserver.observe(scrollRoot, {
+        childList: true,
+        subtree: true,
+      });
+    }
+
     return () => {
+      contentObserver.disconnect();
       scrollRoot.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
     };
